@@ -28,7 +28,19 @@ namespace GAtec.Northwind.Data
 
         public IEnumerable<Category> GetAll()
         {
-            throw new System.NotImplementedException();
+            var categories = new List<Category>();
+
+            for (int i = 1; i <= 100; i++)
+            {
+                categories.Add(new Category()
+                {
+                    Id = i,
+                    Name = $"Categoria {i}",
+                    Description = $"Descrição da Categoria {i}"
+                });
+            }
+
+            return categories;
         }
     }
 }

@@ -1,0 +1,38 @@
+﻿@model GAtec.Northwind.Domain.Model.Category
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Categorias</h2>
+
+@Html.TextBoxFor(model => model.Id)
+
+<div id="grid"></div>
+
+<script>
+
+    $(document).ready(function() {
+
+        $("#grid").kendoGrid({
+            dataSource: {
+                transport: {
+                    read: "@Url.Action("IndexAsync")"
+                }
+            }
+        });
+
+        $("#@Html.IdFor(model => model.Id)").kendoDropDownList({
+            dataSource: {
+                transport: {
+                    read: "@Url.Action("CategoryDropDownList")"
+                }
+            },
+            dataTextField: "Name",
+            dataValueField: "Id"
+        });
+
+    });
+
+</script>
+
+

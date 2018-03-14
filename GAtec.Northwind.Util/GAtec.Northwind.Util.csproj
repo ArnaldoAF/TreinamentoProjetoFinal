@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1BEBC108-7300-43D6-8D19-61CA973CAD10}</ProjectGuid>
+    <ProjectGuid>{1D5EC1AB-DAC0-4058-A7C3-A837FF1F8B0E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GAtec.Northwind.Data</RootNamespace>
-    <AssemblyName>GAtec.Northwind.Data</AssemblyName>
+    <RootNamespace>GAtec.Northwind.Util</RootNamespace>
+    <AssemblyName>GAtec.Northwind.Util</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,18 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GAtec.Northwind.Domain\GAtec.Northwind.Domain.csproj">
-      <Project>{13ab13ba-ca97-4796-8bbd-b25cc1b4a244}</Project>
-      <Name>GAtec.Northwind.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GAtec.Northwind.Util\GAtec.Northwind.Util.csproj">
-      <Project>{1d5ec1ab-dac0-4058-a7c3-a837ff1f8b0e}</Project>
-      <Name>GAtec.Northwind.Util</Name>
-    </ProjectReference>
+    <Compile Include="Validation\DefaultValidation.cs" />
+    <Compile Include="Validation\IValidationError.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

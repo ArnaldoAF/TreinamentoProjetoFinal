@@ -3,13 +3,13 @@ using GAtec.Northwind.Domain.Model;
 
 namespace GAtec.Northwind.Domain.Business
 {
-    public interface ICategoryService
+    public interface ICategoryService : IServiceBase
     {
-        void Add(Category category);
+        bool Add(Category category);
 
-        void Update(Category category);
+        bool Update(Category category);
 
-        void Delete(int id);
+        bool Delete(int id);
 
         Category GetCategory(int id);
 

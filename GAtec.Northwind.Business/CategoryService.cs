@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using GAtec.Northwind.Domain;
 using GAtec.Northwind.Domain.Business;
 using GAtec.Northwind.Domain.Model;
 using GAtec.Northwind.Domain.Repository;
+using GAtec.Northwind.Util;
 
 namespace GAtec.Northwind.Business
 {
@@ -10,27 +12,34 @@ namespace GAtec.Northwind.Business
     {
         private ICategoryRepository CategoryRepository { get; set; }
 
-        public CategoryService(ICategoryRepository categoryRepository)
+        public IValidationError Validator { get; set; }
+
+        public CategoryService(ICategoryRepository categoryRepository,
+                               IValidationError validator)
         {
             this.CategoryRepository = categoryRepository;
+            this.Validator = validator;
         }
 
-        public void Add(Category category)
+        public bool Add(Category category)
         {
             if (string.IsNullOrEmpty(category.Name))
             {
-                throw new Exception("The name is empty.");
+                Validator.AddError("Name", "O nome é obrigatório");
+                return false;
             }
 
             CategoryRepository.Add(category);
+
+            return true;
         }
 
-        public void Update(Category category)
+        public bool Update(Category category)
         {
             throw new System.NotImplementedException();
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             throw new System.NotImplementedException();
         }
@@ -42,7 +51,9 @@ namespace GAtec.Northwind.Business
 
         public IEnumerable<Category> GetCategories()
         {
-            throw new System.NotImplementedException();
+            var data = CategoryRepository.GetAll();
+
+            return data;
         }
     }
 }
