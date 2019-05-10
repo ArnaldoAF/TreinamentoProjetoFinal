@@ -43,7 +43,11 @@
   <ItemGroup>
     <Compile Include="Business\ICategoryService.cs" />
     <Compile Include="Business\IServiceBase.cs" />
+    <Compile Include="Model\Answer.cs" />
+    <Compile Include="Model\Candidate.cs" />
     <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\Selection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IBaseRepository.cs" />
     <Compile Include="Repository\ICategoryRepository.cs" />
