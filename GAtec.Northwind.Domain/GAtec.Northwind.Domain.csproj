@@ -49,8 +49,12 @@
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\Selection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IAnswerRepository.cs" />
     <Compile Include="Repository\IBaseRepository.cs" />
+    <Compile Include="Repository\ICandidateRepository.cs" />
     <Compile Include="Repository\ICategoryRepository.cs" />
+    <Compile Include="Repository\IQuestionRepository.cs" />
+    <Compile Include="Repository\ISelectionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GAtec.Northwind.Util\GAtec.Northwind.Util.csproj">
